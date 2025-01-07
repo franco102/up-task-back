@@ -92,6 +92,7 @@ export class AuthController {
             if(!isPasswordCorrect){
                 const error=new Error('El password es incorrecto')
                 res.status(401).json({error:error.message})
+                return
             }
 
             const token=generateJWT({ id:userExists.id })
